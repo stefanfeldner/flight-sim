@@ -29,9 +29,6 @@ function Map() {
     className: "icon"
   });
   
-  // const corner1 = L.latLng(40.712, -74.227);
-  // const corner2 = L.latLng(40.774, -74.125);
-  // const bounds = L.latLngBounds(corner1, corner2);
 
   return (
     <div className="map-container">
@@ -41,14 +38,14 @@ function Map() {
         zoom={8}
         minZoom={2}
         scrollWheelZoom={false}
-        
       >
         <TileLayer
           attribution='Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>'
           url="https://api.mapbox.com/styles/v1/mapbox/outdoors-v9/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoiYXNkYXdlcSIsImEiOiJjbDJyZHF6a3EwNTFsM2xwZ3lnMG54OGcwIn0.SM5YMAIJYOM6d2Q6jTxhZw"
-        />
+          />
         {flights &&
           flights.map((plane, index) => (
+
             <Marker 
               key={index}
               position={[plane.lat, plane.lng]}
