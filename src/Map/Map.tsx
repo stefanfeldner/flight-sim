@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { MapContainer, Marker, TileLayer } from 'react-leaflet';
+import { MapContainer, Marker, TileLayer, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import marker from '../assets/aeroplane.png';
 import { mockData } from '../data/mockData';
@@ -20,16 +20,13 @@ function Map() {
       setFlight(mockData.response[0]);
     })();
   }, []);
-  
-  const [markerAngle, setMarkerAngle] = useState(120);
 
   const planeIcon = new L.Icon({
     iconUrl: marker,
     iconRetinaUrl: marker,
     popupAnchor: [-0, -0],
     iconSize: [20, 20],
-    rotationOrigin: 'center',
-    rotationAngle: markerAngle
+    className: "icon"
   });
   
   // const corner1 = L.latLng(40.712, -74.227);
@@ -42,7 +39,7 @@ function Map() {
         id="map"
         center={[52.3733, 13.5064]}
         zoom={8}
-        minZoom={4}
+        minZoom={2}
         scrollWheelZoom={false}
         
       >
@@ -56,7 +53,33 @@ function Map() {
               key={index}
               position={[plane.lat, plane.lng]}
               icon={planeIcon}
-            ></Marker>
+            >
+            <Popup>
+            <ul>
+              <li>
+               Hex: {plane.hex}
+              </li>
+              <li>
+               Flight number: {plane.flight_number}
+              </li>
+              <li>
+               Reg number: {plane.reg_number}
+              </li>
+              <li>
+                Aircraft: {plane.aircraft_icao}
+              </li>
+              <li>
+               Speed: {plane.speed}km/h
+              </li>
+              <li>
+               Departed from: {plane.dep_iata}
+              </li>
+              <li>
+               Arriving at: {plane.arr_iata}
+              </li>
+            </ul>
+            </Popup>
+            </Marker>
           ))}
       </MapContainer>
     </div>

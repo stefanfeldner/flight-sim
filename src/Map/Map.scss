@@ -1,6 +1,13 @@
 .map-container {
-
   #map {
     height: calc(100vh - 43px);
   }
+  li {
+    list-style: none;
+  }
+}
+
+.icon {
+  transform: rotate(90deg);
+  background-color:green;
 }
