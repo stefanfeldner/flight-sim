@@ -7,7 +7,6 @@ import Map from './Map/Map';
 function App() {
   return (
     <div className="fly">
-      <h1>Just a Plane old map</h1>
       <Map />
     </div>
   );
