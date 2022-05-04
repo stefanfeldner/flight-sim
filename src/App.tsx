@@ -1,6 +1,3 @@
-//external / packages
-
-//files
 import './App.scss';
 import Map from './Map/Map';
 
@@ -13,7 +10,3 @@ function App() {
 }
 
 export default App;
-
-//leaflet.js
-//TypeScript --> 3 tests?
-//webSocket
